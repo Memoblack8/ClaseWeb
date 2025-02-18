@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.component.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <input type="text" [(ngModel)]="usuario" placeholder="Usuario" required>
+        <input type="password" [(ngModel)]="contrasena" placeholder="Contraseña" required>
+        <button (click)="onLogin()">Ingresar</button> 
+    </div>
+</body>
+</html>
