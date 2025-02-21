@@ -24,4 +24,8 @@ export class LoginComponent {
       alert('Usuario o contraseña incorrectos');
     }
   }
+
+  Back() {
+    this.router.navigate(['/guest']); 
+  }
 }

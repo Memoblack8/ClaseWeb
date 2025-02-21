@@ -40,3 +40,19 @@ body {
 .login-container button:hover {
     background-color: #0056b3;
 }
+
+.close-btn-container {
+    position: relative;
+    width: 0%;
+}
+
+.close-btn {
+    position: relative;
+    background: none;
+    border: none;
+    color: #a90000;
+    font-size: 20px;
+    cursor: pointer;
+    top: -100px;
+    left: -450px;
+}
