@@ -19,7 +19,7 @@ export class LoginComponent {
 
   onLogin() {
     if (this.authService.login(this.usuario, this.contrasena)) {
-      console.log('Login exitoso');
+      this.router.navigate(['/home']); 
     } else {
       alert('Usuario o contraseña incorrectos');
     }

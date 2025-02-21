@@ -8,12 +8,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  isAuthenticated: boolean = true; 
-
-  constructor(private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   logout(): void {
-    this.isAuthenticated = false;
-    this.router.navigate(['/login']); 
+    this.authService.logout();  // Ahora usa el AuthService correctamente
   }
 }
