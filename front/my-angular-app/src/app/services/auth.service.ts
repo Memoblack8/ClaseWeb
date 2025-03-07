@@ -2,19 +2,34 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private isAuthenticated: boolean = false;
+  private isAuthenticated: boolean = this.getAuthStatus();
 
-  constructor(private router: Router) {
-    this.isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+  constructor(private router: Router) {}
+
+  private getAuthStatus(): boolean {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      return localStorage.getItem('isAuthenticated') === 'true';
+    }
+    return false;
+  }
+
+  private setAuthStatus(status: boolean): void {
+    this.isAuthenticated = status;
+    if (typeof window !== 'undefined' && window.localStorage) {
+      if (status) {
+        localStorage.setItem('isAuthenticated', 'true');
+      } else {
+        localStorage.removeItem('isAuthenticated');
+      }
+    }
   }
 
   login(username: string, password: string): boolean {
     if (username === 'admin' && password === '1234') {
-      this.isAuthenticated = true;
-      localStorage.setItem('isAuthenticated', 'true');
+      this.setAuthStatus(true);
       return true;
     }
     return false;
@@ -25,8 +40,7 @@ export class AuthService {
   }
 
   logout(): void {
-    this.isAuthenticated = false;
-    localStorage.removeItem('isAuthenticated');
+    this.setAuthStatus(false);
     this.router.navigate(['/login']);
   }
 }

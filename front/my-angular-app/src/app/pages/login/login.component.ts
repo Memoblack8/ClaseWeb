@@ -16,7 +16,7 @@ export class LoginComponent {
   contrasena: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
-
+  
   onLogin() {
     if (this.authService.login(this.usuario, this.contrasena)) {
       this.router.navigate(['/home']); 

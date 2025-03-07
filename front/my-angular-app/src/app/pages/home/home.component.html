@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="home.component.css">
 </head>
 <body>
-    <div class="login-container">
-        <h2>Menu Principal</h2>
-        <form action="#" method="POST">
-            <button (click)="logout()">Cerrar sesión</button>
-                
-        </form>
-    </div>
+    <div class="home-container">
+        <h2>Lista de Personajes</h2>
+        <ul *ngIf="people.length > 0; else loading">
+            <li *ngFor="let person of people">
+                {{ person.name }}
+            </li>
+        </ul>
+        <ng-template #loading>
+            <p>Cargando personajes...</p>
+        </ng-template> 
+        <button (click)="logout()">Cerrar sesión</button>
+    </div> 
 </body>
 </html>
