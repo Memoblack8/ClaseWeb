@@ -10,11 +10,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-    getPeople(page: number, limit: number): Observable<any> {
+  getPeople(page: number, limit: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}?page=${page}&limit=${limit}`);
-  }
-
-  getPersonDetails(url: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/1`); 
   }
 }  
