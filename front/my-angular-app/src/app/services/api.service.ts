@@ -3,17 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'any'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3000/api/people';
 
   constructor(private http: HttpClient) { }
 
-  getPeople(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/people`);
+    getPeople(page: number, limit: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}?page=${page}&limit=${limit}`);
   }
 
-  getPersonById(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/people/1`);  }
-}
+  getPersonDetails(url: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/1`); 
+  }
+}  

@@ -1,8 +1,20 @@
+<div class="login-container">
+    <h2>Star Wars API</h2>
+    <form action="#" method="POST">
+        <button (click)="logout()">Cerrar sesión</button>
+    </form>
+</div>
 
-    <div class="login-container">
-        <h2>Star Wars API</h2>
-        <form action="#" method="POST">
-            <button (click)="logout()">Cerrar sesión</button>
-                
-        </form>
+<div class="people-container">
+    <div *ngFor="let person of people" class="person-card">
+        <h3>{{ person.name }}</h3>
+        <p><strong>UID:</strong> {{ person.uid }}</p>
+        <p><strong>Link:</strong> {{ person.url }}</p>
     </div>
+</div>
+
+<div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+    <span>Página {{ currentPage }} de {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+</div>
