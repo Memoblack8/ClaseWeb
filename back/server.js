@@ -23,7 +23,7 @@ app.post('/login', (req, res) => {
 app.get('/api/people', async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 5;
+    const limit = parseInt(req.query.limit) || 30;
     const offset = (page - 1) * limit;
 
     const response = await fetch(`https://www.swapi.tech/api/people?page=${page}&limit=${limit}`);
