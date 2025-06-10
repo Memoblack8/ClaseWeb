@@ -11,7 +11,9 @@
         <h2>Iniciar Sesión</h2>
         <input type="text" [(ngModel)]="usuario" placeholder="Usuario" required>
         <input type="password" [(ngModel)]="contrasena" placeholder="Contraseña" required>
+        <button (click)="onRegister()">Registrar</button>
         <button (click)="onLogin()">Ingresar</button> 
+        <button (click)="onForgot()">Recuperar </button> 
     </div>
     <div class="close-btn-container">
         <button class="close-btn" (click)="Back()">✖</button>

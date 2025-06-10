@@ -10,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
   imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
+  
 })
 export class LoginComponent {
   usuario: string = '';
@@ -21,8 +22,16 @@ export class LoginComponent {
     if (this.authService.login(this.usuario, this.contrasena)) {
       this.router.navigate(['/home']); 
     } else {
-      alert('Usuario o contraseña incorrectos');
+        
     }
+  }
+
+  onRegister() {
+    this.router.navigate(['/register']);
+  }
+
+  onForgot(){
+    this.router.navigate(['/password']);
   }
 
   Back() {

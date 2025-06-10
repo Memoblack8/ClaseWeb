@@ -7,7 +7,7 @@ body {
     background-color: #f4f4f4;
 }
 
-.login-container {
+.guest-container {
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -15,11 +15,11 @@ body {
     text-align: center;
 }
 
-.login-container h2 {
+.guest-container h2 {
     margin-bottom: 20px;
 }
 
-.login-container input {
+.guest-container input {
     width: 90%;
     padding: 10px;
     margin: 10px 0;
@@ -27,7 +27,7 @@ body {
     border-radius: 5px;
 }
 
-.login-container button {
+.guest-container button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -38,6 +38,6 @@ body {
     margin-bottom: 10px;
 }
 
-.login-container button:hover {
+.guest-container button:hover {
     background-color: #0056b3;
 }
