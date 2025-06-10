@@ -18,4 +18,8 @@ export class PasswordComponent {
   Back() {
     this.router.navigate(['/login']); 
   }
+
+  Send(){
+    
+  }
 }

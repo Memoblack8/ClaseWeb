@@ -3,12 +3,16 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch').default;
 const app = express();
+require('dotenv').config();
+const admin = require('firebase-admin');
 
 app.use(cors({
   origin: 'http://localhost:4200'  
 }));
 
 app.use(bodyParser.json());
+
+
 
 app.post('/login', (req, res) => {
     const { usuario, contrasena } = req.body;
@@ -34,7 +38,7 @@ app.get('/api/people', async (req, res) => {
     
     const data = await response.json();
 
-    console.log(data);  // Verifica qué se está devolviendo aquí
+    console.log(data); 
 
     res.json({
       results: data.results,
@@ -45,6 +49,25 @@ app.get('/api/people', async (req, res) => {
   }
 });
 
+app.post('/register', async (req, res) => {
+  try {
+      const { email, password } = req.body;
 
+      const userRecord = await admin.auth().createUser({
+          email,
+          password,
+      });
+
+      res.status(201).json({
+          message: 'Usuario registrado exitosamente',
+          uid: userRecord.uid,
+      });
+  } catch (error) {
+      res.status(400).json({
+          message: 'Error al registrar usuario',
+          error: error.message,
+      });
+  }
+});
 
 app.listen(3000, () => console.log('Servidor corriendo en http://localhost:3000'));

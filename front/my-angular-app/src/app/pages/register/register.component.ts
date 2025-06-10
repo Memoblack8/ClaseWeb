@@ -12,9 +12,14 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-    constructor(private router: Router) {} 
+  email: string = '';
+  password: string = '';
+  confirmPassword: string = '';
+    constructor(private router: Router, private authService: AuthService) {} 
   
-    Register() {}
+    Register() {
+      
+    }
 
     Back() {
       this.router.navigate(['/login']); 
